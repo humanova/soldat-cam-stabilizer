@@ -1,5 +1,5 @@
 # soldat-cam-stabilizer
-Stabilize cam position to player position by manipulating the game memory and record the frames with opencv-py script
+Stabilize cam position to player position by manipulating the game memory and record frames with opencv-py script
 
 ![sol_gif](https://github.com/humanova/soldat-cam-stabilizer/blob/master/media/sol-2.gif "soldat_stabilized_cam") 
 
