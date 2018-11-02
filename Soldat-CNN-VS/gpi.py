@@ -1,3 +1,4 @@
+#pragma once
 import numpy as np
 import cv2
 from PIL import ImageGrab as ig
@@ -9,7 +10,12 @@ cv2.namedWindow("window")
 cv2.moveWindow("window",1050, 600)
 
 def create_folder():
-    os.chdir('data')
+    try:
+        os.chdir('data')
+    except:
+        os.mkdir('data')
+        os.chdir('data')
+    
     name = str(int(time.time()))
     os.mkdir(name)
     os.chdir(name)
@@ -22,6 +28,7 @@ def process_img(original_image):
 frame = 0
 save_mode = False
 create_folder()
+print("press '[' to start/stop recording frames | 'q' to quit")
 
 while(True):
 
@@ -35,7 +42,7 @@ while(True):
 
     if keyboard.is_pressed('['):
         save_mode = not save_mode
-        print('save mode : ', save_mode)
+        print('record mode : ', save_mode)
 
     if cv2.waitKey(25) & 0xFF == ord('q'):
         cv2.destroyAllWindows()
